@@ -1,64 +1,29 @@
-// get a reference to the sms or call radio buttons
-var checkedButton=document.querySelector("input[name='billItemType']");
+var checkedRadio= document.querySelector("input[name='billItemType']");
+var checkedRadio1= document.querySelector("input[name='billItemType1']");
+var totalTwo=document.querySelector('.totalTwo');
+var callTotalTwo=document.querySelector('.callTotalTwo');
+var smsTotalTwo=document.querySelector('.smsTotalTwo');
 
-//get a reference to the add button
-var addButton=document.querySelector('.radioBillAddBtn');
+var add1=document.querySelector('.radioBillAddBtn');
 
-//create a variable that will keep track of the total bill
+var callTotal2=34.50;
+var total2=37.50;
+var smsTotal2=3.00;
 
-var bill=document.querySelector('.totalTwo');
+function calculateRadio(){
 
-//add an event listener for when the add button is pressed
-function addButtonClicked(){
-
-
-var callTotal=34.50;
-
-
-var smsTotal=3.00;
-
-
-var total=37.50;
-
-if(checkedButton.checked){
-var billItem=checkedButton.value;
-
-
-if(billItem=='call'){
-
-    total+=2.75;
-    callTotal+=2.75;
+    if(checkedRadio.checked){
+        checkedRadio1.disabled=true;
+    callTotal2+=2.75;
+    total2+=0.75;
+    }
+    if(checkedRadio1.checked){
+        checkedRadio.disabled=true;
+        smsTotal2+=0.75;
+        total2+=0.75;
+    }
+totalTwo.innerHTML=total2;
+    callTotalTwo.innerHTML=callTotal2;
 }
 
-else{
-    total+=0.75;
-}
-
-}
-
-total.toFixed(2);
-
-
-bill.innerHTML=total;
-callBill.innerHTML=callTotal;
-smsBill.innerHTML=smsTotal;
-
-if(total>30.00 && total<50.00){
-
-    bill.style.color="orange";
-
-}
-
-else if(roundedBillTotal>50.00){
-bill.style.color="red";
-}
-
-//alert(total);
-}
-
-addButton.addEventListener('click',addButtonClicked);
-
-//in the event listener get the value from the billItemTypeRadio radio buttons
-// * add the appropriate value to the running total
-// * add nothing for invalid values that is not 'call' or 'sms'.
-// * display the latest total on the screen
+add1.addEventListener('click',calculateRadio);
