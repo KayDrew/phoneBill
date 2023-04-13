@@ -23,13 +23,13 @@ var updateSettings=document.querySelector('.updateSettings');
 
 
 // create a variables that will keep track of all three totals.
-var callTotal3=34.00
-var smsTotal3=7.75;
-var total3=41.75;
-var callCost=2.75;
-var smsCost=0.75;
-var warningLevel ="";
-var criticalLevel ="";
+var callTotal3=0.00
+var smsTotal3=0.00;
+var total3=0.00;
+var callCost=0.00;
+var smsCost=0.00;
+var warningLevel =0.00;
+var criticalLevel =0.00;
 
 function settingsUpdated(){
 	
@@ -55,20 +55,40 @@ for(let radioBtn of settingRadioBtns){
 	
     
     if(settingBillItem==="call"){
-    callTotal3+= callCost;
+  
+    
+    if(total3<criticalLevel){
+    	  callTotal3+= callCost;
     total3+= callCost;    
+    }
+    
+else{
+	totalSettings.style.color="red";
+	}
+
 }
 
 else if(settingBillItem==="sms"){
+	
+	if(total3<criticalLevel){
 	smsTotal3+= smsCost;
-        total2+= smsCost;
+        total3+= smsCost;
+        }
+        
+        else{
+	totalSettings.style.color="red";
+
+	}
+
 	}
 
 
+
+
 }
-      
-      
+         
        }
+    
     
   
   if (total3>warningLevel && total3<criticalLevel ){
@@ -77,7 +97,13 @@ else if(settingBillItem==="sms"){
  else if(total3>criticalLevel){
 
 totalSettings.style.color="red";
+
 }
+
+else{
+	totalSettings.style.color="black";
+
+	}
 
 
 var roundedBillTotal3=total3.toFixed(2);

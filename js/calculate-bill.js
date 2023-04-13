@@ -13,7 +13,7 @@ var stringArr=str.split(',');
 
 for(let i=0;i<stringArr.length;++i){
 
-    var billItem1=stringArr[i];
+    var billItem1=stringArr[i].toLowerCase();
 
     if(billItem1==='call'){
         totalCost+=2.75;
@@ -38,7 +38,12 @@ if(roundedTotal>20 && roundedTotal<30){
 
 else if(roundedTotal>30){
     billTotal.style.color="red";
+ 
 
+}
+
+else{
+billTotal.style.color="black";
 }
 
 }

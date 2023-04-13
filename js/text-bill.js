@@ -4,9 +4,9 @@ var billType=document.querySelector('.billTypeText');
 //get a reference to the add button
 var addButton=document.querySelector('.addToBillBtn');
 //create a variable that will keep track of the total bill
-var total=41.25;
-var callTotal=34.50;
-var smsTotal=3.00;
+var total=0.00;
+var callTotal=0.00;
+var smsTotal=0.00;
 
 
 
@@ -19,7 +19,7 @@ function addButtonClicked(){
 
   
 
-    var billItem=billType.value;
+    var billItem=billType.value.toLowerCase();
 
     var totalText=document.querySelector('.totalOne');
     
@@ -44,6 +44,10 @@ if(total>30.00 && total<50.00){
 
 else if(total>50.00){
 totalText.style.color="red";
+}
+
+else{
+billTotal.style.color="black";
 }
 
     var roundedBillTotal=total.toFixed(2);

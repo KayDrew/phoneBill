@@ -6,12 +6,14 @@ var smsTotalTwo=document.querySelector('.smsTotalTwo');
 
 var add1=document.querySelector('.radioBillAddBtn');
 
-var callTotal2=34.50;
-var total2=37.50;
-var smsTotal2=3.00;
+var callTotal2=0.00;
+var total2=0.00;
+var smsTotal2=0.00;
 
 function calculateRadio(){
+	
 var billItem2="";
+
 for(let radio of checkedRadio2){
 	
   if(radio.checked)  {
