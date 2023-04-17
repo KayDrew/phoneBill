@@ -31,12 +31,12 @@ var roundedTotal=totalCost.toFixed(2);
 
 billTotal.innerHTML=roundedTotal;
 
-if(roundedTotal>20 && roundedTotal<30){
+if(roundedTotal>=20 && roundedTotal<30){
 
     billTotal.style.color="orange";
 }
 
-else if(roundedTotal>30){
+else if(roundedTotal>=30){
     billTotal.style.color="red";
  
 

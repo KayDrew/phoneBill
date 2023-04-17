@@ -36,18 +36,18 @@ function addButtonClicked(){
     }
 
     
-if(total>30.00 && total<50.00){
+if(total>=30.00 && total<50.00){
 
     totalText.style.color="orange";
 
 }
 
-else if(total>50.00){
+else if(total>=50.00){
 totalText.style.color="red";
 }
 
 else{
-billTotal.style.color="black";
+totalText.style.color="black";
 }
 
     var roundedBillTotal=total.toFixed(2);
