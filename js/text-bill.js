@@ -6,6 +6,9 @@ var total=0;
 var callTotal=0;
 var smsTotal=0;
 
+
+if(item!=undefined){
+
     if(item==="call"){
      total+=2.75;
    callTotal+=2.75;
@@ -21,8 +24,7 @@ callBill: callTotal,
 smsBill:smsTotal,
 totalBill: total
 }
-
-    
+}
 
     }
 

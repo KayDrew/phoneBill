@@ -19,11 +19,11 @@ function textBillEvent(){
 
    let billItem=billType.value.toLowerCase();
    
-   var bill=calculateTextBill(billItem);
+   var bill2=calculateTextBill(billItem);
 
-total+=bill.totalBill;
-callTotal +=bill.callBill;
-smsTotal+=bill.smsBill;
+total+=bill2.totalBill;
+callTotal +=bill2.callBill;
+smsTotal+=bill2.smsBill;
 
 
 if(total>30.00 && total<50.00){

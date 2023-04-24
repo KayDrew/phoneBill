@@ -4,6 +4,8 @@ function calculateBillFunction (items){
 var stringArr=items.split(',');
   var totalCost=0;
 
+  if(stringArr.length>0){
+
 for(let i=0;i<stringArr.length;++i){
 
     var billItem1=stringArr[i].toLowerCase();
@@ -17,7 +19,7 @@ for(let i=0;i<stringArr.length;++i){
 
         totalCost+=0.75;
     }
-
+}
 }
 
 return totalCost;
