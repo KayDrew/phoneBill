@@ -1,15 +1,8 @@
-var calculate= document.querySelector('.calculateBtn');
-var billTotal=document.querySelector('.billTotal');
-var billString=document.querySelector('.billString');
 
-function calculateBtnClicked(){
-
-    
-    var totalCost=0;
-    
-var str=billString.value;
-var stringArr=str.split(',');
-
+function calculateBillFunction (items){
+	
+var stringArr=items.split(',');
+  var totalCost=0;
 
 for(let i=0;i<stringArr.length;++i){
 
@@ -27,24 +20,8 @@ for(let i=0;i<stringArr.length;++i){
 
 }
 
-var roundedTotal=totalCost.toFixed(2);
-
-billTotal.innerHTML=roundedTotal;
-
-if(roundedTotal>20 && roundedTotal<30){
-
-    billTotal.style.color="orange";
+return totalCost;
 }
 
-else if(roundedTotal>30){
-    billTotal.style.color="red";
- 
 
-}
 
-else{
-billTotal.style.color="black";
-}
-
-}
-calculate.addEventListener('click',calculateBtnClicked);
