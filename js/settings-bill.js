@@ -37,6 +37,22 @@ callCost=parseFloat(callCostSetting.value);
 smsCost=parseFloat(smsCostSetting.value);
 warningLevel =parseFloat(warningLevelSetting.value);
 criticalLevel=parseFloat(criticalLevelSetting.value);
+
+
+  
+if (total3>=warningLevel && total3<criticalLevel ){
+	totalSettings.style.color="orange";
+	}
+ else if(total3>=criticalLevel){
+
+totalSettings.style.color="red";
+
+}
+
+else{
+	totalSettings.style.color="black";
+
+	}
 }
 
 //add an event listener for when the 'Update settings' button is pressed
@@ -62,9 +78,7 @@ for(let radioBtn of settingRadioBtns){
     total3+= callCost;    
     }
     
-else{
-	totalSettings.style.color="red";
-	}
+
 
 }
 
@@ -75,10 +89,7 @@ else if(settingBillItem==="sms"){
         total3+= smsCost;
         }
         
-        else{
-	totalSettings.style.color="red";
-
-	}
+  
 
 	}
 
@@ -91,10 +102,10 @@ else if(settingBillItem==="sms"){
     
     
   
-  if (total3>warningLevel && total3<criticalLevel ){
+  if (total3>=warningLevel && total3<criticalLevel ){
 	totalSettings.style.color="orange";
 	}
- else if(total3>criticalLevel){
+ else if(total3>=criticalLevel){
 
 totalSettings.style.color="red";
 

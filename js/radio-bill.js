@@ -34,6 +34,21 @@ else if(billItem2==="sms"){
       
       
        }
+
+           
+if(total2>=30.00 && total2<50.00){
+
+    totalTwo.style.color="orange";
+
+}
+
+else if(total2>=50.00){
+totalTwo.style.color="red";
+}
+
+else{
+totalTwo.style.color="black";
+}
     
       var roundedBillTotal2=total2.toFixed(2);
       var roundedCallTotal2=callTotal2.toFixed(2);
