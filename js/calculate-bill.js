@@ -20,23 +20,5 @@ for(let i=0;i<stringArr.length;++i){
 
 }
 
-<<<<<<< HEAD
 return totalCost;
 }
-
-=======
-var roundedTotal=totalCost.toFixed(2);
-
-billTotal.innerHTML=roundedTotal;
-
-if(roundedTotal>=20 && roundedTotal<30){
-
-    billTotal.style.color="orange";
-}
-
-else if(roundedTotal>=30){
-    billTotal.style.color="red";
- 
->>>>>>> a175e106426a282a0eff327443e546169d0968b0
-
-
