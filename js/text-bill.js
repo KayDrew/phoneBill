@@ -9,12 +9,14 @@ var smsTotal=0;
 
 if(item!=undefined){
 
-    if(item==="call"){
+var item1= item.toLowerCase();
+
+    if(item1==="call"){
      total+=2.75;
    callTotal+=2.75;
 }
 
-   else  if(item==="sms"){
+   else  if(item1==="sms"){
         total+=0.75;
         smsTotal+=0.75;
     }

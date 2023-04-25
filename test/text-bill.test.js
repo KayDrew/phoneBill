@@ -1,25 +1,36 @@
 
 describe("The text-bill function", function() {
 
-    it("should be able to calculate the total cost for lowercase text", function(){
+
+    it("should be able to return the cost for lowercase text", function(){
+    
+    var bill=calculateTextBill("call");
+        assert.equal(2.75, bill.callBill) // 
         
-        assert.equal(2.25, calculateTextBill("call")) // 
-        assert.equal(0.25, calculateTextBill("sms")) //     
+         bill=calculateTextBill("sms");
+        assert.equal(0.75,  bill.smsBill) //     
     });
 
 
-    it("should be able to calculate the total cost for uppercase text", function(){
+    it("should be able to return the cost for uppercase text", function(){
+            var bill=calculateTextBill("CALL");
+        assert.equal(2.75, bill.callBill) // 
         
-        assert.equal(2.25, calculateTextBill("CALL")) // 
-        assert.equal(0.25, calculateTextBill("SMS")) //     
+         bill=calculateTextBill("SMS");
+        assert.equal(0.75,  bill.smsBill) //     
+    
+        
     });
     
     
     it("should return zero when invalid or empty string is passed", function(){
         
-        assert.equal(2.25, calculateTextBill("call")) // 
-        assert.equal(0.25, calculateTextBill("sms")) //     
+        
+        var bill=calculateTextBill("");
+        assert.equal(0,bill.callBill) // 
+        assert.equal(0,  bill.smsBill) //     
     });
     
+       
 
 });
