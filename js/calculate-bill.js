@@ -1,7 +1,8 @@
 
 function calculateBillFunction (items){
 	
-var stringArr=items.split(',');
+	var str=items.replace(/ +/g, "");
+var stringArr=str.split(',');
   var totalCost=0;
 
   if(stringArr.length>0){
