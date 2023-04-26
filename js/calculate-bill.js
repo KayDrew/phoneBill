@@ -2,6 +2,7 @@
 function calculateBillFunction (items){
 	
 	var str=items.replace(/ +/g, "");
+	
 var stringArr=str.split(',');
   var totalCost=0;
 

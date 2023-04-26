@@ -5,13 +5,24 @@
 
 // create a variables that will keep track of all three totals.
 
-function settingsBill(settingBillItem){
+function settingsBill(settingBillItem,callCost1,smsCost1,warning,critical){
 
-	var callTotal3=0.00
-var smsTotal3=0.00;
+var callTotal3=0.00;
+var smsTotal3=0.00
 var total3=0.00;
 
+var smsCost=0.00;
+var callCost=0.00;
+var warningLevel =0.00;
+var criticalLevel =0.00;
+
+if(settingBillItem!=undefined && smsCost1!=undefined && callCost1!= undefined && warning!=undefined && critical!=undefined){
     
+ smsCost=smsCost1;
+ callCost=callCost1;
+ warningLevel =warning;
+ criticalLevel =critical;
+
     if(settingBillItem==="call"){
   
     
@@ -33,11 +44,15 @@ else if(settingBillItem==="sms"){
 
 	}
 
+}
 
 	return {
 		callBill3: callTotal3,
 		smsBill3:smsTotal3,
-		totalBill3: total3
+		totalBill3: total3,
+		warning: warningLevel,
+		critical: criticalLevel,
+		
 		}
 
 
@@ -46,16 +61,3 @@ else if(settingBillItem==="sms"){
        
     
     
-  
-
-
-}
-
-//add an event listener for when the add button is pressed
-
-//in the event listener get the value from the billItemTypeRadio radio buttons
-// * add the appropriate value to the call / sms total
-// * add the appropriate value to the overall total
-// * add nothing for invalid values that is not 'call' or 'sms'.
-// * display the latest total on the screen.
-// * check the value thresholds and display the total value in the right color.
