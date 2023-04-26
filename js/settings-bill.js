@@ -23,20 +23,18 @@ if(settingBillItem!=undefined && smsCost1!=undefined && callCost1!= undefined &&
  warningLevel =warning;
  criticalLevel =critical;
 
+
+  
+ if(total3<criticalLevel){
+
     if(settingBillItem==="call"){
   
-    
-    if(total3<criticalLevel){
-    	  callTotal3+= callCost;
+    callTotal3+= callCost;
     total3+= callCost;    
-    }
-    
-
 }
 
 else if(settingBillItem==="sms"){
-	
-	if(total3<criticalLevel){
+
 	smsTotal3+= smsCost;
         total3+= smsCost;
         }

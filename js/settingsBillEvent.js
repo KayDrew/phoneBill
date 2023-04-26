@@ -23,25 +23,26 @@ var updateSettings=document.querySelector('.updateSettings');
 var total3=0; 
 var callTotal3=0;
 var smsTotal3=0; 
-var smsCost=0.00;
-var callCost=0.00;
-var warningLevel =0.00;
-var criticalLevel =0.00;
+var smsCost3=0.00;
+var callCost3=0.00;
+var warningLevel3=0.00;
+var criticalLevel3=0.00;
 
 
 
 function settingsUpdated(){
 
     
-callCost=parseFloat(callCostSetting.value);    
-smsCost=parseFloat(smsCostSetting.value);
-warningLevel =parseFloat(warningLevelSetting.value);
-criticalLevel=parseFloat(criticalLevelSetting.value);
+callCost3=parseFloat(callCostSetting.value);    
+smsCost3=parseFloat(smsCostSetting.value);
+warningLevel3 =parseFloat(warningLevelSetting.value);
+criticalLevel3=parseFloat(criticalLevelSetting.value);
 
-    if (total3>=warningLevel && total3<criticalLevel ){
+
+    if (total3>=warningLevel3 && total3<criticalLevel3 ){
         totalSettings.style.color="orange";
         }
-     else if(total3>=criticalLevel){
+     else if(total3>=criticalLevel3){
     
     totalSettings.style.color="red";
     
@@ -69,21 +70,14 @@ function addFunction(){
     }
 }  
     
-var bill3= settingsBill(billItem3);
+var bill3= settingsBill(billItem3,callCost3,smsCost3,warningLevel3,criticalLevel3);
 
-var billSms=bill3.smsFunc;
-var billCall=bill3.callFunc;
-var critical=bill3.criticalFunc;
-var warning=bill3.warningFunc;
 
-billSms=smsCost;
-billCall=callCost;
-critical=criticalLevel;
-warning=warningLevel;
-
-total3=bill3.totalBill3;
-smsTotal3=bill3.smsBill3;
-callTotal3=bill3.callBill3;
+if(total3<criticalLevel3){
+total3+=bill3.totalBill3;
+smsTotal3+=bill3.smsBill3;
+callTotal3+=bill3.callBill3;
+}
 
 var roundedBillTotal3=total3.toFixed(2);
 var roundedCallTotal3 =callTotal3.toFixed(2);
@@ -93,8 +87,22 @@ var roundedSmsTotal3 = smsTotal3.toFixed (2);
  smsTotalSettings.innerHTML=roundedSmsTotal3;
  callTotalSettings.innerHTML=roundedCallTotal3;   
 
+
+ 
+ if (total3>=warningLevel3 && total3<criticalLevel3 ){
+    totalSettings.style.color="orange";
+    }
+ else if(total3>=criticalLevel3){
+
+totalSettings.style.color="red";
+
 }
 
+else{
+    totalSettings.style.color="black";
 
+    }
+
+}
 
 addButton3.addEventListener('click',addFunction);
