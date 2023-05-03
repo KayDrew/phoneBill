@@ -5,6 +5,8 @@ function calculateBillFunction (items){
 	
 var stringArr=str.split(',');
   var totalCost=0;
+  var warning= 20;
+  var critical= 30;
 
   if(stringArr.length>0){
 
@@ -22,7 +24,50 @@ for(let i=0;i<stringArr.length;++i){
         totalCost+=0.75;
     }
 }
+
+  }
+
+
+
+
+function getTotalCost(){
+
+    var result= totalCost.toFixed(2);
+    return result;
 }
 
-return totalCost;
+
+function getLevel(){
+
+    if(totalCost>=warning && totalCost<critical){  
+        return "orange colour";
+    }
+
+    else  if(totalCost>=critical){  
+        return "red colour";
+    }
+
+
+}
+
+function getWarning(){
+
+    return warning;
+}
+
+function getCritical(){
+
+    return critical;
+}
+
+
+
+
+return{getTotalCost,
+    getLevel,
+    getWarning,
+    getCritical
+    
+}
+
 }

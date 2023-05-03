@@ -12,21 +12,51 @@ if(item!=undefined){
 var item1= item.trim().toLowerCase();
 
     if(item1==="call"){
-     total+=2.75;
-   callTotal+=2.75;
+   
 }
 
    else  if(item1==="sms"){
-        total+=0.75;
-        smsTotal+=0.75;
+       
     }
     
+}
+
+function makeCall(){
+
+    total+=2.75;
+    callTotal+=2.75;
+}
+
+function sendSms(){
+
+    total+=0.75;
+    smsTotal+=0.75;
+}
+    
+    function getTotal(){
+
+        return result=total.toFixed(2);
+        return result;
+    }
+
+    function getCallTotal(){
+
+        return result=callTotal.toFixed(2);
+        return result;
+    }
+
+    function getSmsTotal(){
+
+        return result=smsTotal.toFixed(2);
+        return result;
+    }
+
     return {
-callBill: callTotal,
-smsBill:smsTotal,
-totalBill: total
+callBill: getCallTotal,
+smsBill:getSmsTotal,
+totalBill: getTotal
 }
 }
 
-    }
+    
 

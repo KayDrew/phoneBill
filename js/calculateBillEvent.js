@@ -7,18 +7,23 @@ function calculateBillEvent(){
    
 var str=billString.value;
 
-var totalCost= calculateBillFunction (str);
 
-var roundedTotal=totalCost.toFixed(2);
+var bill= calculateBillFunction (str);
 
-billTotal.innerHTML=roundedTotal;
+var totalCost= bill.getTotalCost();
+var warning=bill.getWarning();
+var critical=bill.getCritical();
 
-if(roundedTotal>20 && roundedTotal<30){
+
+billTotal.innerHTML=totalCost;
+
+if(totalCost>warning && totalCost<critical){
 
     billTotal.style.color="orange";
+ 
 }
 
-else if(roundedTotal>30){
+else if(totalCost>critical){
     billTotal.style.color="red";
  
 
