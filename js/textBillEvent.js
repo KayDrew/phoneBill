@@ -19,30 +19,43 @@ function textBillEvent(){
 
    let billItem2=billType.value.toLowerCase();
    
-   var bill2=calculateTextBill(billItem2);
+   var bill2=calculateTextBill();
+   
+  bill2.callOrSms(billItem2);
+ 
+  
+ bill2.setTotal();
 
-total+=bill2.totalBill();
+total+=bill2.totalBill(); 
 callTotal+=bill2.callBill();
 smsTotal+=bill2.smsBill();
 
+var warning=bill2.getWarning();
+var critical=bill2.getCritical();
 
-if(total>30.00 && total<50.00){
+
+
+if(total>=warning && total<critical){
 
     totalText.style.color="orange";
 
 }
 
-else if(total>50.00){
+else if(total>critical){
 totalText.style.color="red";
 }
 
 else{
-billTotal.style.color="black";
+totalText.style.color="black";
 }
 
-    totalText.innerHTML=total;
-    callBill.innerHTML=callTotal;
-    smsBill.innerHTML=smsTotal;
+var roundedTotal=total.toFixed(2);
+var roundedCallTotal= callTotal.toFixed(2);
+var roundedSmsTotal= smsTotal.toFixed(2);
+
+    totalText.innerHTML=roundedTotal;
+    callBill.innerHTML=roundedCallTotal;
+    smsBill.innerHTML=roundedSmsTotal;
 
 }
 

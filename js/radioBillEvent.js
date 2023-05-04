@@ -23,27 +23,34 @@ for(let radio of checkedRadio2){
 
 }
 
-var bill2=calculateRadio(billItem2);
+var bill2=calculateRadio();
+bill2.setCost(billItem2);
 
-total2+=bill2.totalBill2;
-callTotal2+=bill2.callBill2;
-smsTotal2+=bill2.smsBill2;
+
+callTotal2+=bill2.callBill2();
+smsTotal2+=bill2.smsBill2();
+bill2.setTotal();
+total2+=bill2.totalBill2();
 
            
-if(total2>=30.00 && total2<50.00){
+var warning=bill2.getWarning();
+var critical=bill2.getCritical();
+
+
+if(total2>=warning && total2<critical){
 
     totalTwo.style.color="orange";
 
 }
 
-else if(total2>=50.00){
+else if(total2>=critical){
 totalTwo.style.color="red";
 }
 
 else{
 totalTwo.style.color="black";
 }
-    
+
 var roundedBillTotal2=total2.toFixed(2);
 var roundedCallTotal2=callTotal2.toFixed(2);
 var roundedSmsTotal2=smsTotal2.toFixed(2);

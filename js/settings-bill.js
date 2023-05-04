@@ -5,7 +5,7 @@
 
 // create a variables that will keep track of all three totals.
 
-function settingsBill(settingBillItem,callCost1,smsCost1,warning,critical){
+function settingsBill(){
 
 var callTotal3=0.00;
 var smsTotal3=0.00
@@ -16,40 +16,110 @@ var callCost=0.00;
 var warningLevel =0.00;
 var criticalLevel =0.00;
 
-if(settingBillItem!=undefined && smsCost1!=undefined && callCost1!= undefined && warning!=undefined && critical!=undefined){
+function setSmsCost(cost){
+
+if(cost!==undefined && cost.isNaN()===false ){
     
- smsCost=smsCost1;
- callCost=callCost1;
- warningLevel =warning;
- criticalLevel =critical;
+ smsCost=cost;
+ 
+ }
+ 
+ function setCallCost(cost){
 
+if(cost!==undefined && cost.isNaN()===false ){
+    
+ callCost=cost;
+ 
+ }
+ 
+ 
+ function setCriticalLevel(level){
 
-  
- if(total3<criticalLevel){
+if(level!==undefined && level.isNaN()===false ){
+    
+ criticalLevel=level;
+ 
+ }
+ 
+ 
+  function setWarningLevel(level){
 
-    if(settingBillItem==="call"){
-  
-    callTotal3+= callCost;
-    total3+= callCost;    
+if(level!==undefined && level.isNaN()===false ){
+    
+ warningLevel=level;
+ 
+ }
+ 
+ function makeCall(){
+
+callTotal3 +=callCost;
 }
 
-else if(settingBillItem==="sms"){
+function sendSms(){
 
-	smsTotal3+= smsCost;
-        total3+= smsCost;
-        }
-        
+smsTotal3 +=smsCost;
+}
 
+function getCallTotal(){
+
+return callTotal3;
+}
+
+function getSmsTotal(){
+
+return smsTotal3;
+}
+ 
+ 
+ function getCriticalLevel(){
+
+return criticalLevel;
+}
+
+function getWarningLevel(){
+	
+	return  warningLevel;
 	}
+ 
+function setTotal (){
+
+total3=smsTotal3 +callTotal3;
 
 }
+
+function getTotal(){
+
+return total3;
+
+}
+
+function getLevel(){
+
+if(){
+}
+
+else if(){
+}
+
+else{
+}
+
+}
+
+  
 
 	return {
-		callBill3: callTotal3,
-		smsBill3:smsTotal3,
-		totalBill3: total3,
-		warning: warningLevel,
-		critical: criticalLevel,
+		makeCall,
+		sendSms,
+		setTotal,
+		callBill3: getCallTotal,
+		smsBill3: getSmsTotal,
+		totalBill3: getTotal,
+		setWarning: setWarningLevel,
+		setCritical:setCriticalLevel, 
+		getWarning: getWarningLevel,
+		getCritical: getCriticalLevel,
+		getLevel
 		
 		}
 

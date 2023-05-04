@@ -1,11 +1,13 @@
 
 describe("The radio-bill function", function() {
 
-    it("should be able to return the sms cost", function(){
+    it("should be able to return the total sms cost", function(){
         
-        var bill= calculateRadio('sms');
+        var bill= calculateRadio();
+        bill.setCost("sms");
+        bill.setCost("sms");
         
-        assert.equal(0.75, bill.smsBill2) // 
+        assert.equal(1.50, bill.smsBill2()) // 
        
 
     });
@@ -14,23 +16,126 @@ describe("The radio-bill function", function() {
     
     it("should be able to return the call cost", function(){
     	
-        var bill= calculateRadio('call');
+        var bill= calculateRadio();
+        bill.setCost("call");
+        bill.setCost("call");
         
-        assert.equal(2.75, bill.callBill2) // 
+        assert.equal(4.5, bill.callBill2()) // 
          
+    });
+
+    it("should be able to calculate the  total  for smses and calls", function(){
+        
+        var bill= calculateRadio();
+        
+       bill.setCost("call");
+        bill.setCost("call")
+        bill.setCost("sms");
+        bill.setCost("sms")
+        
+        assert.equal(4.50, bill.callBill2()) ;
+        assert.equal(1.50, bill.smsBill2()) ;
+       
+
     });
 
 
     
     it("should be able to calculate the overall total cost", function(){
         
-        var bill= calculateRadio('sms').smsBill2;
-       
-       
-   bill+=calculateRadio('call').callBill2;
-    
+        var bill= calculateRadio();
         
-        assert.equal(3.50, bill) ;
+       bill.setCost("call");
+        bill.setCost("call")
+        bill.setCost("sms");
+        bill.setCost("sms")
+      bill.setTotal ();
+        
+        assert.equal(6, bill.totalBill2()) ;
+       
+
+    });
+    
+        it("should return orange colour when total cost is above 30", function(){
+        
+        var bill= calculateRadio();
+        
+       bill.setCost("call");
+        bill.setCost("call")
+        bill.setCost("sms");
+        bill.setCost("sms");
+          bill.setCost("call");
+        bill.setCost("call")
+        bill.setCost("sms");
+        bill.setCost("sms");
+          bill.setCost("call");
+        bill.setCost("call")
+        bill.setCost("sms");
+        bill.setCost("sms");
+          bill.setCost("call");
+        bill.setCost("call")
+        bill.setCost("sms");
+        bill.setCost("sms");
+          bill.setCost("call");
+        bill.setCost("call")
+        bill.setCost("sms");
+        bill.setCost("sms");
+      bill.setTotal ();
+        
+        assert.equal("orange colour",  bill.getLevel()) ;
+       
+
+    });
+    
+    
+          it("should return red colour when total cost is above 50", function(){
+        
+        var bill= calculateRadio();
+        
+       bill.setCost("call");
+        bill.setCost("call")
+        bill.setCost("sms");
+        bill.setCost("sms");
+          bill.setCost("call");
+        bill.setCost("call")
+        bill.setCost("sms");
+        bill.setCost("sms");
+          bill.setCost("call");
+        bill.setCost("call")
+        bill.setCost("sms");
+        bill.setCost("sms");
+          bill.setCost("call");
+        bill.setCost("call")
+        bill.setCost("sms");
+        bill.setCost("sms");
+          bill.setCost("call");
+        bill.setCost("call")
+        bill.setCost("sms");
+        bill.setCost("sms");
+        bill.setCost("call");
+        bill.setCost("call")
+        bill.setCost("sms");
+        bill.setCost("sms");
+          bill.setCost("call");
+        bill.setCost("call")
+        bill.setCost("sms");
+        bill.setCost("sms");
+          bill.setCost("call");
+        bill.setCost("call")
+        bill.setCost("sms");
+        bill.setCost("sms");
+          bill.setCost("call");
+        bill.setCost("call")
+        bill.setCost("sms");
+        bill.setCost("sms");
+          bill.setCost("call");
+        bill.setCost("call")
+        bill.setCost("sms");
+        bill.setCost("sms");
+        
+      bill.setTotal ();
+        
+        assert.equal("red colour",  bill.getLevel()) ;
        
 
     });

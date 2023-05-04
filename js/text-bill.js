@@ -1,60 +1,98 @@
 
 //add an event listener for when the add button is pressed
-function calculateTextBill(item){
+function calculateTextBill(){
 
 var total=0;
 var callTotal=0;
 var smsTotal=0;
+var warning=20;
+var critical=30;
 
 
-if(item!=undefined){
+function makeCallOrSendSms(item){
+	
+	if(item!== undefined){
+	
+	var act2= item.trim();
+	var act= act2.toLowerCase();
+	
+	if(act==="call"){
+  callTotal+=2.25;
 
-var item1= item.trim().toLowerCase();
+}
 
-    if(item1==="call"){
+else if (act==="sms"){
+
+ smsTotal+=0.75;
    
 }
 
-   else  if(item1==="sms"){
-       
-    }
-    
 }
 
-function makeCall(){
-
-    total+=2.75;
-    callTotal+=2.75;
 }
 
-function sendSms(){
+function getCallTotal(){
 
-    total+=0.75;
-    smsTotal+=0.75;
+return callTotal;
 }
-    
-    function getTotal(){
 
-        return result=total.toFixed(2);
-        return result;
-    }
+function getSmsTotal (){
+return smsTotal;
+}
 
-    function getCallTotal(){
+function setTotal(){
+	total=smsTotal +callTotal 
+	
+	}
 
-        return result=callTotal.toFixed(2);
-        return result;
-    }
+function getTotal(){
 
-    function getSmsTotal(){
+return total;
+}
 
-        return result=smsTotal.toFixed(2);
-        return result;
-    }
+
+function getCritical(){
+	
+	return critical;
+	}
+
+function getWarning(){
+	
+	return warning;
+	}
+
+
+function getLevel(){
+
+if(total>=warning && total<critical){
+
+return "orange colour";
+
+}
+
+else if(total>=critical){
+
+return "red colour";
+}
+
+else {
+
+return "normal colour";
+}
+
+}
+
 
     return {
-callBill: getCallTotal,
+callOrSms: makeCallOrSendSms,
+callBill: getCallTotal, 
 smsBill:getSmsTotal,
-totalBill: getTotal
+setTotal,
+totalBill: getTotal,
+level: getLevel,
+getWarning,
+getCritical
+
 }
 }
 
