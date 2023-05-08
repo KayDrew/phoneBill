@@ -23,6 +23,7 @@ if(cost!==undefined && cost.isNaN()===false ){
  smsCost=cost;
  
  }
+ }
  
  function setCallCost(cost){
 
@@ -32,32 +33,41 @@ if(cost!==undefined && cost.isNaN()===false ){
  
  }
  
+ }
+ 
  
  function setCriticalLevel(level){
 
-if(level!==undefined && level.isNaN()===false ){
+if(level!==undefined && isNaN(level)===false ){
     
  criticalLevel=level;
  
  }
- 
+ }
  
   function setWarningLevel(level){
 
-if(level!==undefined && level.isNaN()===false ){
+if(level!==undefined && isNaN(level)===false ){
     
  warningLevel=level;
  
  }
+ }
  
  function makeCall(){
+ 	if(total3<criticalLevel){
 
 callTotal3 +=callCost;
 }
+}
 
 function sendSms(){
+	
+	if(total3<criticalLevel){
 
 smsTotal3 +=smsCost;
+}
+
 }
 
 function getCallTotal(){
@@ -82,6 +92,7 @@ function getWarningLevel(){
 	}
  
 function setTotal (){
+	
 
 total3=smsTotal3 +callTotal3;
 
@@ -95,13 +106,19 @@ return total3;
 
 function getLevel(){
 
-if(){
+if(total3>= warningLevel && total3<criticalLevel){
+	
+	return "orange colour";
 }
 
-else if(){
+
+else if(total3>=criticalLevel){
+	
+	return "red colour";
 }
 
 else{
+	return  "normal colour";
 }
 
 }
