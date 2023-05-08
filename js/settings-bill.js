@@ -18,7 +18,7 @@ var criticalLevel =0.00;
 
 function setSmsCost(cost){
 
-if(cost!==undefined && cost.isNaN()===false ){
+if(cost!==undefined && isNaN(cost)===false ){
     
  smsCost=cost;
  
@@ -27,7 +27,7 @@ if(cost!==undefined && cost.isNaN()===false ){
  
  function setCallCost(cost){
 
-if(cost!==undefined && cost.isNaN()===false ){
+if(cost!==undefined && isNaN(cost)===false ){
     
  callCost=cost;
  
@@ -53,8 +53,11 @@ if(level!==undefined && isNaN(level)===false ){
  
  }
  }
+
+
  
  function makeCall(){
+
  	if(total3<criticalLevel){
 
 callTotal3 +=callCost;
@@ -126,6 +129,8 @@ else{
   
 
 	return {
+		setCallCost,
+		setSmsCost,
 		makeCall,
 		sendSms,
 		setTotal,
@@ -136,10 +141,9 @@ else{
 		setCritical:setCriticalLevel, 
 		getWarning: getWarningLevel,
 		getCritical: getCriticalLevel,
-		getLevel
+		getLevel,
 		
 		}
-
 
 }
          

@@ -33,11 +33,13 @@ var criticalLevel3=0.00;
 function settingsUpdated(){
 
 var bill3= settingsBill();
-    
-bill3.makeCall(parseFloat(callCostSetting.value));    
-bill3.sendSms(parseFloat(smsCostSetting.value));
-bill3.setWarning(parseFloat(warningLevelSetting.value));
-bill3.setCritical(parseFloat(criticalLevelSetting.value));
+callCost3=(parseFloat(callCostSetting.value));    
+smsCost3=(parseFloat(smsCostSetting.value));
+warningLevel3=(parseFloat(warningLevelSetting.value));
+criticalLevel3=(parseFloat(criticalLevelSetting.value));
+
+bill3.setCritical(criticalLevel3);
+bill3.setWarning(warningLevel3);
 
 var level= bill3.getLevel();
 
@@ -74,6 +76,16 @@ function addFunction(){
     
 var bill3= settingsBill();
 
+
+bill3.setCallCost(callCost3);    
+bill3.setSmsCost(smsCost3);
+bill3.setWarning(warningLevel3);
+bill3.setCritical(criticalLevel3);
+warningLevel3=bill3.getWarning();
+criticalLevel3= bill3.getCritical();
+
+if(total3<criticalLevel3){
+
 if(billItem3 ==="call"){
 	
 	bill3.makeCall();
@@ -82,14 +94,10 @@ if(billItem3 ==="call"){
 	else {
 bill3.sendSms();
 }
-
-
-
+}
 
 smsTotal3+=bill3.smsBill3();
 callTotal3+=bill3.callBill3();
-warningLevel3=bill3.getWarning();
-criticalLevel3= bill3.getCritical();
 bill3.setTotal();
 total3+=bill3.totalBill3();
 
@@ -104,7 +112,6 @@ var roundedSmsTotal3 = smsTotal3.toFixed (2);
  callTotalSettings.innerHTML=roundedCallTotal3;   
 
 
- 
  if (total3>=warningLevel3 && total3<criticalLevel3 ){
     totalSettings.style.color="orange";
     }

@@ -56,7 +56,7 @@ describe("The radio-bill function", function() {
 
     });
     
-        it("should return orange colour when total cost is above 30", function(){
+        it("should return orange colour when total cost is equal to, or above 30", function(){
         
         var bill= calculateRadio();
         
@@ -139,5 +139,20 @@ describe("The radio-bill function", function() {
        
 
     });
+
+    
+    it("should return normal colour if total cost is the below both warning and critical level", function(){
+      var bill= calculateRadio();
+        
+      bill.setCost("call");
+       bill.setCost("call");
+       bill.setTotal ();
+
+
+      assert.equal("normal colour", bill.getLevel()); //
+
+
+    });
+
 
 });
